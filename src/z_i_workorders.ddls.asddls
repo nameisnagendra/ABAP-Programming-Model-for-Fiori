@@ -18,11 +18,11 @@ define view Z_I_WorkOrders
         bukrs,
         werks,
         astnr,
-        case when astnr = 'CNF' then 3
+        case when astnr = 'CNF' or astnr = 'REL' then 3
            when astnr = 'PCNF' then 2
            when astnr = 'CLSD' then 1
            else 0 end as STATUS_CRITICAL,
-           last_changed,
+        last_changed,
         pl_cost,
         act_cost,
         currency

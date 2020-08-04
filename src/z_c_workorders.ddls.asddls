@@ -27,12 +27,7 @@ define view Z_C_WorkOrders
   with default filter _Status.StatusProfile = ''
 {
 
-       @ObjectModel.text.element: ['ktext']
-       @UI.selectionField: [{ position: 20 } ]
-       @ObjectModel.readOnly: true
-       @UI.lineItem.position: 10
-       @UI.lineItem: [{ type: #FOR_ACTION,dataAction: 'BOPF:CONFIRM_ORDER',label: 'Set to Confirm' }]
-
+  @ObjectModel.readOnly: true
   key  workorder,
        //       @UI.lineItem: [{ position:20,label:'Equipment',importance: #HIGH }]
        //       @UI.identification:[{ position: 20,label:'Equipment',importance: #HIGH }]
@@ -55,8 +50,8 @@ define view Z_C_WorkOrders
        aenam,
 
        //       @Semantics.text: true
-       @Search:{defaultSearchElement: true,fuzzinessThreshold:0.7,ranking: #HIGH }
-              @UI.identification: [{ position: 40,importance: #HIGH }]
+//       @Search:{defaultSearchElement: true,fuzzinessThreshold:0.7,ranking: #HIGH }
+//              @UI.identification: [{ position: 40,importance: #HIGH }]
        ktext,
 
        //       @UI.fieldGroup: [{ position: 30,label:'Companycode',importance: #HIGH,qualifier: 'MainData' }]
