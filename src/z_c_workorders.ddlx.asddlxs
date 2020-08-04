@@ -1,0 +1,102 @@
+@Metadata.layer: #CORE
+@UI:{
+headerInfo:{
+
+ description:{ value: 'ktext',type:#STANDARD},
+ title:{ value:'workorder',type: #STANDARD},
+
+ typeName: 'Work Order',
+ typeNamePlural: 'Work Orders'
+ }
+ }
+annotate view Z_C_WorkOrders with
+{
+
+  @UI.facet: [
+  {
+  id:'PlannedPrice',
+  purpose: #HEADER,
+  type: #DATAPOINT_REFERENCE,
+  targetQualifier: 'PlannedPrice'
+  }
+//  {
+//  id:'ActualPrice',
+//  purpose: #HEADER,
+//  type: #DATAPOINT_REFERENCE,
+//  targetQualifier: 'ActaulPrice'
+//  },
+//  {
+//  id:'PercentageVar',
+//  purpose: #HEADER,
+//  type: #DATAPOINT_REFERENCE,
+//  targetQualifier: 'PriceVarPercentage'
+//  },
+//  {
+//  id:'Status',
+//  purpose: #HEADER,
+//  type: #DATAPOINT_REFERENCE,
+//  targetQualifier: 'Status'
+//  },
+//  {
+//  type: #COLLECTION,
+//  id:'GeneralData',
+//  label:'General Information',
+//  purpose: #STANDARD
+//  },
+//
+//  { type: #IDENTIFICATION_REFERENCE,
+//  parentId: 'GeneralFacet',
+//  targetQualifier: 'GeneralData',
+//  id:'GeneralData',
+//  purpose: #STANDARD },
+//
+//  { type:#FIELDGROUP_REFERENCE,
+//  parentId: 'GeneralFacet',
+//  label:'AdminData',
+//  targetQualifier: 'AdminData',
+//  id:'AdminData',
+//  purpose: #STANDARD
+//  },
+//  { type:#LINEITEM_REFERENCE,
+//  id:'Operations',
+//  label:'Order Operations',
+//  targetElement: '_Operations',
+//  purpose: #STANDARD
+//  }
+//
+  ]
+  //Z_C_WorkOrders
+  @UI.selectionField: [{ position: 20 } ]
+  @UI.lineItem:[{position: 10}]
+  @UI.identification: [{position: 10,label:'Work Order' }]
+  @UI.lineItem: [{ type: #FOR_ACTION,dataAction: 'BOPF:CONFIRM_ORDER',label: 'Set to Confirm' }]
+  workorder;
+//  equnr;
+//  auart;
+//  ernam;
+//  erdat;
+//  aenam;
+//  ktext;
+//  bukrs;
+//  werks;
+//  astnr;
+//  StatusCriticality;
+  @UI.lineItem: [{ position: 20 }]  
+  @UI.identification: [{ position: 20,label:'Planned Cost' }]
+  @UI.dataPoint:{title: 'Planned Cost',visualization: #NUMBER,qualifier: 'PlannedPrice'}
+
+  pl_cost;
+//  act_cost;
+//  currency;
+//  PriceVariance;
+//  PriceVarPercentage;
+//  Percentage;
+//  /* Associations */
+//  //Z_C_WorkOrders
+//  _Currency;
+//  _Equipment;
+//  _Operations;
+//  _OrderType;
+//  _Status;
+
+}
